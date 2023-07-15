@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature Converter</title>
+  <style>
+    /* Add your CSS styles here */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-align: center;
+        text-decoration: solid;
+      }
+    body {
+      font-family: Arial, sans-serif;
+      background: rgb(11, 7, 6);
+    }
+
+    form {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color:white;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    select {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <form id="temperatureForm">
+    <label for="temperature">Temperature:</label>
+    <input type="text" id="temperature" placeholder="Enter temperature" required>
+    <label for="unit">Unit:</label>
+    <select id="unit">
+      <option value="celsius">Celsius</option>
+      <option value="fahrenheit">Fahrenheit</option>
+      <option value="kelvin">Kelvin</option>
+    </select>
+    <button type="submit">Convert</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('temperatureForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      var temperatureInput = document.getElementById('temperature').value;
+      var unitInput = document.getElementById('unit').value;
+      
+      if (!isNumeric(temperatureInput)) {
+        alert('Please enter a valid numeric temperature.');
+        return;
+      }
+      
+      var temperature = parseFloat(temperatureInput);
+      
+      var result;
+      
+      if (unitInput === 'celsius') {
+        result = convertToFahrenheit(temperature);
+        document.getElementById('result').textContent = result + ' °F';
+      } else if (unitInput === 'fahrenheit') {
+        result = convertToCelsius(temperature);
+        document.getElementById('result').textContent = result + ' °C';
+      } else if (unitInput === 'kelvin') {
+        result = convertToKelvin(temperature, unitInput);
+        document.getElementById('result').textContent = result + ' K';
+      }
+    });
+
+    function isNumeric(value) {
+      return !isNaN(parseFloat(value)) && isFinite(value);
+    }
+
+    function convertToCelsius(temperature) {
+      return ((temperature - 32) * 5 / 9).toFixed(2);
+    }
+
+    function convertToFahrenheit(temperature) {
+      return ((temperature * 9 / 5) + 32).toFixed(2);
+    }
+
+    function convertToKelvin(temperature, unitInput) {
+      if (unitInput === 'celsius') {
+        return (temperature + 273.15).toFixed(2);
+      } else if (unitInput === 'fahrenheit') {
+        return ((temperature + 459.67) * 5 / 9).toFixed(2);
+      }
+    }
+  </script>
+</body>
+</html>
