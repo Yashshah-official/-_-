@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(90 89 90);
+  color: black;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 80px;
+  background-color: rgb(134 134 139);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  list-style: none;
+  margin: 0 23px;
+}
+
+nav ul li a {
+  color: rgb(26, 25, 25);
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: rgb(153, 255, 255);
+  font-size: 1.05rem;
+}
+
+.text {
+  font-size: 2rem;
+  position: relative;
+  top: -11px;
+  left: 5px;
+}
+
+.left img {
+  width: 60px;
+  height: 60px;
+  border-radius: 54px;
+  position: relative;
+  left: -3px;
+  top: 3px;
+}
+
+.firstsection {
+  display: flex;
+  justify-content: space-around;
+  margin: 80px 0;
+}
+
+.firstsection > div {
+  width: 31%;
+}
+
+.rightsection img {
+  width: 374px;
+}
+
+.leftsection {
+  font-style: bold;
+  font-family: sans-serif;
+  font-size: 3rem;
+  margin: 30px 0;
+}
+
+.purple {
+  color: blueviolet;
+}
+
+#element {
+  color: blueviolet;
+}
+
+
+
+.section{
+  border: 2px solid rgb(254, 250, 250);
+  color: rgb(10, 10, 10);
+  box-shadow: black 19px 25px 15px;
+  padding: 20px 20px 20px 20px;
+  margin-bottom: 45px;
+  line-height: 40px;
+}
+p{
+  line-height: 30px;
+  font-family: cursive;
+}
+h2{
+  font-size: 2rem;
+}
+h3{
+  color:black;
+  font-size: 1.7rem;
+}
+.section li{
+ list-style: none;
+}
+.section a{
+  text-decoration: none;
+  color: black;
+}
